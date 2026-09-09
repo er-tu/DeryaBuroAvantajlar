@@ -47,12 +47,63 @@ button{font:inherit}
 .empty{padding:30px 15px;text-align:center;color:#7c8c9b}
 footer{text-align:center;color:#91a0ad;font-size:10px;padding:0 20px 24px}
 @media(max-width:430px){.hero h1{font-size:21px}.content,.sectors{padding-left:15px;padding-right:15px}.detail-grid{grid-template-columns:1fr}.logo-wrap{width:68px;height:68px;flex-basis:68px}}
+.hero {
+  position: relative;
+}
+.hero {
+  position: relative;
+}
+
+.hero h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.hero > p {
+  text-align: center;
+}
+
+.yayin-bilgisi {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  text-align: right;
+  color: rgba(255,255,255,.95);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.yayin-bilgisi div {
+  margin-bottom: 6px;
+}
+
+.yayin-bilgisi strong {
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .yayin-bilgisi {
+    top: 18px;
+    right: 14px;
+    font-size: 10px;
+  }
+
+  .hero h1 {
+    margin-top: 25px;
+  }
+}
 </style>
 </head>
 <body>
 <div class="app">
 <header class="hero">
   <div class="brand">DERYA BÜRO</div>
+
+  <div class="yayin-bilgisi">
+    <div><strong>Yayın Tarihi:</strong> 09.09.2026</div>
+    <div><strong>Son Güncelleme:</strong> 09.09.2026</div>
+  </div>
+
   <h1>Çalışan Avantajları ve Özel Kampanyalar</h1>
   <p>Derya Büro çalışanlarına özel anlaşmalar</p>
 </header>
