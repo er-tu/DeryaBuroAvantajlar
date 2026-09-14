@@ -1,5 +1,21 @@
 <!doctype html>
 <html lang="tr">
+<script>
+var t = setInterval(function() {
+  if (window.goatcounter && window.goatcounter.visit_count) {
+    clearInterval(t);
+
+    window.goatcounter.visit_count({
+      append: '#ziyaretci-sayaci',
+      path: 'TOTAL',
+      no_branding: true
+    });
+  }
+}, 100);
+</script>
+
+<div id="ziyaretci-sayaci"></div>
+
 <script data-goatcounter="https://deryaburo.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 <head>
