@@ -168,19 +168,6 @@ footer{text-align:center;color:#91a0ad;font-size:10px;padding:0 20px 24px}
   </div>
   <div id="cards"></div>
 </main>
-<div class="ziyaretci-kutulari">
-
-  <div class="ziyaretci-kutu">
-    <div class="ziyaretci-baslik">👁️ Günlük Ziyaretçi</div>
-    <div id="gunluk-ziyaretci" class="ziyaretci-sayi"></div>
-
-  </div>
-
-  <div class="ziyaretci-kutu">
-    <div class="ziyaretci-baslik">👥 Toplam Ziyaretçi</div>
-    <div id="toplam-ziyaretci" class="ziyaretci-sayi"></div>
-  </div>
-
 </div>
 <footer>Güncel kampanyalar Derya Büro çalışanlarına özel olarak sunulmaktadır.</footer>
 </div>
@@ -258,34 +245,5 @@ function render(){
 
 render();
 </script>
-
-<script>
-var t = setInterval(function() {
-  if (window.goatcounter && window.goatcounter.visit_count) {
-    clearInterval(t);
-
-    var now = new Date();
-    var today = now.getFullYear() + '-' +
-      String(now.getMonth() + 1).padStart(2, '0') + '-' +
-      String(now.getDate()).padStart(2, '0');
-
-  window.goatcounter.visit_count({
-  path: 'TOTAL',
-  callback: function(r) {
-    document.getElementById('toplam-ziyaretci').innerHTML = r.count;
-  }
-});
-
-window.goatcounter.visit_count({
-  path: 'TOTAL',
-  start: today,
-  callback: function(r) {
-    document.getElementById('gunluk-ziyaretci').innerHTML = r.count;
-  }
-});
-  }
-}, 100);
-</script>
-
 </body>
 </html>
