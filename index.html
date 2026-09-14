@@ -172,13 +172,13 @@ footer{text-align:center;color:#91a0ad;font-size:10px;padding:0 20px 24px}
 
   <div class="ziyaretci-kutu">
     <div class="ziyaretci-baslik">👁️ Günlük Ziyaretçi</div>
-    <div id="gunluk-ziyaretci" class="ziyaretci-sayi">...</div>
+    <div id="gunluk-ziyaretci" class="ziyaretci-sayi"></div>
 
   </div>
 
   <div class="ziyaretci-kutu">
     <div class="ziyaretci-baslik">👥 Toplam Ziyaretçi</div>
-    <div id="toplam-ziyaretci" class="ziyaretci-sayi">...</div>
+    <div id="toplam-ziyaretci" class="ziyaretci-sayi"></div>
   </div>
 
 </div>
@@ -269,16 +269,20 @@ var t = setInterval(function() {
       String(now.getMonth() + 1).padStart(2, '0') + '-' +
       String(now.getDate()).padStart(2, '0');
 
-    window.goatcounter.visit_count({
-      append: '#toplam-ziyaretci',
-      path: 'TOTAL'
-    });
+  window.goatcounter.visit_count({
+  path: 'TOTAL',
+  callback: function(r) {
+    document.getElementById('toplam-ziyaretci').innerHTML = r.count;
+  }
+});
 
-    window.goatcounter.visit_count({
-      append: '#gunluk-ziyaretci',
-      path: 'TOTAL',
-      start: today
-    });
+window.goatcounter.visit_count({
+  path: 'TOTAL',
+  start: today,
+  callback: function(r) {
+    document.getElementById('gunluk-ziyaretci').innerHTML = r.count;
+  }
+});
   }
 }, 100);
 </script>
