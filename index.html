@@ -4,6 +4,8 @@
 <head>
 <script data-goatcounter="https://deryaburo.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
+<div style="display:none" id="g-toplam"></div>
+<div style="display:none" id="g-gunluk"></div>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b63b6">
@@ -143,6 +145,10 @@ footer{text-align:center;color:#91a0ad;font-size:10px;padding:0 20px 24px}
     margin-top: 25px;
   }
 }
+#g-toplam,
+#g-gunluk{
+    display:none !important;
+}
 </style>
 </head>
 <body>
@@ -244,6 +250,51 @@ function render(){
 }
 
 render();
+</script>
+<script>
+var t = setInterval(function() {
+
+    if(window.goatcounter && window.goatcounter.visit_count){
+
+        clearInterval(t);
+
+        var now = new Date();
+
+        var today =
+            now.getFullYear() + '-' +
+            String(now.getMonth() + 1).padStart(2,'0') + '-' +
+            String(now.getDate()).padStart(2,'0');
+
+        goatcounter.visit_count({
+            append:'#g-toplam',
+            path:'TOTAL'
+        });
+
+        goatcounter.visit_count({
+            append:'#g-gunluk',
+            path:'TOTAL',
+            start:today
+        });
+
+        setTimeout(function(){
+
+            var sayilar =
+                document.querySelectorAll('#gcvc-views');
+
+            if(sayilar.length >= 2){
+
+                document.getElementById('toplam-ziyaretci')
+                    .innerText = sayilar[0].innerText;
+
+                document.getElementById('gunluk-ziyaretci')
+                    .innerText = sayilar[1].innerText;
+            }
+
+        },1500);
+
+    }
+
+},100);
 </script>
 </body>
 </html>
